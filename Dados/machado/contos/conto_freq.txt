@@ -1,31 +1,4 @@
-#!/usr/bin/bash
-
-echo "
-iconv -f ISO-8859-1 -t UTF-8 macn001.txt > conto1.txt #aceitar caractere em pt
-
-tr ' ' '\n' < conto1.txt > conto_quebrado.txt #quebra o texto
-
-tr '[:upper:]' '[:lower:]' < conto_quebrado.txt > conto_minusculas.txt #deixa tudo minusculo
-
-sed -i 's/,//g' conto_minusculas.txt #tira vígula
-
-sed -i 's/\.//g' conto_minusculas.txt #tira ponto
-
-sed -i 's/[.;]//g' conto_minusculas.txt #tira ponto e ;
-
-sed -i 's/://g' conto_minusculas.txt #tira :
-
-grep -v '^$' conto_minusculas.txt > conto_semlinha.txt #tira linha em branco
-
-sed "s/[[:punct:]]//g" conto_semlinha.txt > conto_sempontua.txt #tira pontuação (descobri ele tarde demais)
-
-sort conto_sempontua.txt > conto_alfabetico.txt #ordem alfabetica
-
-uniq -c conto_alfabetico.txt > conto_freq.txt #conta frequência
-
-"
-minharesposta="
-10 
+     10 
       1 10
       1 11
       1 15
@@ -8034,6 +8007,3 @@ minharesposta="
       8 único
       1 únicos
       1 útil
-
-"
-echo $minharesposta > resposta_ex_4
