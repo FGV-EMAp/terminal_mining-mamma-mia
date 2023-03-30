@@ -15,11 +15,13 @@ grep -v '^$' Todas_as_obras_quebradas.txt > Todas_as_obras_semlinha.txt #tira li
 
 $ tr -d " \t" < Todas_as_obras_semlinha.txt > Todas_as_obras_semtab.txt #tira o tab do começo das linhas
 
-uniq -c Todas_as_obras_semtab.txt > Todas_as_obras_freq.txt #conta frequência
+sort Todas_as_obras_semtab.txt > Todas_as_obras_alfabetico.txt #ordem alfabética
+
+uniq -c Todas_as_obras_alfabetico.txt > Todas_as_obras_final.txt #conta frequência
 
 "
 minharesposta="
-Arquivo Todas_as_obras.txt, encontrado no diretório ex5.
+Arquivo Todas_as_obras_final.txt, encontrado no diretório ex5.
 O upload da lista de frequências pra esse arquivo demoraria séculos e deixaria o processo mais lento.
 "
 echo $minharesposta > resposta_ex_n5
