@@ -1,41 +1,5 @@
-#!/usr/bin/bash
 
-echo "
-
-cd .. #sai da pasta soluções 
-
-cd Dados/ #entra na pasta Dados
-
-cd machado/ #entra na pasta machado
-
-for file in */*.txt; do head -n 1 "$file" >> titulos.txt; done #cria um novo arquivo e adiciona a primeira linha de cada arquivo .txt encontrado nas subpastas a esse arquivo
-
-sed 's/[0-9]*//g' titulos.txt > titulos_sem_numeros.txt #retira os números do arquivo
-
-iconv -f ISO-8859-1 -t UTF-8 titulos_sem_numeros.txt > titulos_certo.txt #converte o arquivo de texto para UTF-8
-
-sed 's/^[^[:space:]]*[[:space:]]//' titulos_certo.txt > titulos4.txt #retira a primeira palavra de cada linha
-
-sed 'y/áàâãéèêíïóôõöúçñÁÀ ÃÉÈÊÍÏÓÔÕÖÚÇÑ/aaaãeeeiiioooucnAAAÃEEEIIIOOOUCN/' titulos4.txt | LC_ALL=C sort -f > titulo_final.txt #remove os acentos 
-
-sed 's/^[ \t]*//' titulo_final.txt > sem_espacos.txt #retira os espaços no início das linhas
-
-sed 's/^\.\{1\}//' sem_espacos.txt > teste_final.txt #retira os pontos no início das linhas
-
-sed 's/^[ \t]*//' teste_final.txt > arquivo_sem_tab.txt #retira a tabulação no início das linhas
-
-sort arquivo_sem_tab.txt > arquivo_final_ordenado.txt #ordena as linhas em ordem alfabética
-
-tr -d '\176' < arquivo_final_ordenado.txt | sed 's/Á/A/g; s/á/a/g; s/Ã/A/g; s/ã/a/g; s/ /A/g; s/â/a/g; s/É/E/g; s/é/e/g; s/Ê/E/g; s/ê/e/g; s/Í/I/g; s/í/i/g; s/Ó/O/g; s/ó/o/g; s/Ô/O/g; s/ô/o/g; s/Õ/O/g; s/õ/o/g; s/Ú/U/g; s/ú/u/g; s/Ü/U/g; s/ü/u/g' > ultimo.txt #retira os acentos "~"
- 
-tr '[:upper:]' '[:lower:]' < ultimo.txt | awk '{print $0}' > arquivo_final_minusculo.txt #deixa todo o texto minúsculo
-
-sed 's/,//g' arquivo_final_minusculo.txt > sem_virgulas.txt #retira as vírgulas do texto
-
-ordenar os títulos sem vírgulas “$ sort sem_virgulas.txt > ordem_alfabetica.txt” #ordena as linhas em ordem alfabética
-" 
-
-minharesposta="a carteira 
+a carteira 
 a chave 
 a constituinte perante a histiria pelo sr. homem de melo. 
 a critica teatral a critica teatral. jose de alencar : mae
@@ -280,5 +244,4 @@ venus! divina venus!
 viagem a roda de mim mesmo 
 vidros quebrados 
 vinte anos! vinte anos! 
-virginius "
-echo $minharesposta > resposta_ex_n2
+virginius 
