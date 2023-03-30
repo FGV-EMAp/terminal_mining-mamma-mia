@@ -1,7 +1,15 @@
 #!/usr/bin/bash
 
 echo "
-for file in *.txt; do head -n 1 "$file" >> arquivo inicial.txt; done #cria um novo arquivo e adiciona a primeira linha de cada arquivo .txt encontrado nas subpastas a esse arquivo
+cd .. #sai da pasta Solução
+
+cd Dados/ #entra na pasta Dados
+
+cd machado/ #entra na pasta machado
+
+cd contos #entra na pasta contos
+
+for file in *.txt; do head -n 1 "$file" >> arquivo inicial.txt; done #cria um novo arquivo e adiciona a primeira linha de cada arquivo .txt a esse arquivo
 
 iconv -f iso-8859-1 -t UTF-8 arquivo_inicial.txt > arquivo-utf8.txt #converte o arquivo em para UTF-8
 
@@ -146,4 +154,4 @@ Conto, O Escrivão Coimbra, 1906
 Conto, Relíquias de Casa Velha, 1906
 Conto, Um Incêndio, 1906
 "
-echo $minharesposta > resposta_ex_n
+echo $minharesposta > resposta_ex_n3
